@@ -4,7 +4,21 @@ describe("The mergeItems function", () => {
   const template = `
     <table>
       <tbody>
-        <!-- Content here -->
+        {{#each items}}
+          <tr>
+            <td>{{ add @index 1 }}</td>
+            <td>{{ title }}</td>
+            <td>{{ category }}</td>
+            <td>
+              {{#if isComplete}}
+              {{else}}
+                <form method="POST" action="/items/{{ add @index 1 }}">
+                  <button class="pure-button">Complete</button>
+                </form>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
       </tbody>
     </table>
   `;
@@ -56,7 +70,6 @@ describe("The mergeItems function", () => {
     expect(result).to.include('<td>1</td>');
     expect(result).to.include('<td>Title 1</td>');
     expect(result).to.include('<td>Category 1</td>');
-    expect(result).to.include('<td></td>');
     expect(result).to.not.include('<form method="POST" action="/items/1>');
     expect(result).to.not.include('<!-- Content here -->');
   });

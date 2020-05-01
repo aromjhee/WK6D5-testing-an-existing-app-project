@@ -6,7 +6,9 @@ describe("mergeCategories()", () => {
     const template = `
       <div>
         <ul>
-          <!-- Content here -->
+          {{#each categories}}
+            <li>{{ this }}</li>
+          {{/each}}
         </ul>
       </div>
     `;
@@ -55,7 +57,9 @@ describe("mergeCategories()", () => {
     const template = `
       <div>
         <select>
-          <!-- Content here -->
+          {{#each categories}}
+            <option>{{ this }}</option>
+          {{/each}}
         </select>
       </div>
     `;

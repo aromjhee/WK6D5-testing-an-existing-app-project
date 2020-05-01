@@ -33,6 +33,9 @@
 
           <label for="category">Category</label>
           <select name="category">
+            {{#each categories}}
+              <option>{{ this }}</option>
+            {{/each}}
             <!-- Content here -->
           </select>
 
