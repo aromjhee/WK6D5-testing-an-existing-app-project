@@ -16,7 +16,7 @@ describe("mergeCategories()", () => {
       const categories = [];
       // act: single line of code for single action
       const result = mergeCategories(template, categories, 'li');
-      //assert; assert as much as from that act
+      // assert: assert as much as from that act
       expect(result).to.include('<div>');
       expect(result).to.include('</div>');
       expect(result).to.include('<ul>');
